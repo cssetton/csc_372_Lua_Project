@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>csc 372 Project : Part 2 - cssetton </title>
+</head>
+<body>
+  <h1>Project Part 2: Lua</h1>
+  <h3>AUTHOR:</h3><p>AUTHOR: Isabela Hutchings</p>
+  <h1>History</h1>
+  <p>Lua was created in 1993 by Luiz Henrique de Figueredo, and Waldemar Celes who where members of the Computer Graphics TEchnology Group (Tecgraf) at the PAcific Catholic Universiy of Rio de Janeiro, Brazil.</p>
+ <p>Brazil had strong trade barrier policies for computer hardware and software from 1977 to 1992, a lot of Tecgraf's clients cound not afford to buy cusomized software from abroad, causesing Tecgraf to implement basic software tools from scrtach. This pushed the company to create thier own custome language</p>
+ <h3>Recent changes</h3>
+ <p>Lua 5.4 implemented the local type casting for vairbales to keep them block scope, Lua also has const tag to declare variables as static, and a stronger garbage collector 5.3 implemented integers (numbers in Lua are by default floats), bitwise opperators, basic utf-8 support, and floor division</p>
+<h2>Current Version:</h2>
+<p> Lua 5.4.1</p>
+<h2>Installing and building lua</h2>
+<p> you can download Lua from lua.org off from their download page.
+In order to Build lua</p>
+<ol>
+  <li>open up a terminal window move ot the top-level directory lua-5.4.1.</li>
+  <li>Do 'make. The MakeFile will guess your platform and bild Lua for it: Lua currently supports: guess aix bsd c89 freebsd generic linux linux-readline macosx mingw posix solaris</li>
+  <li>The compilation takes only a few moments and produces three files in the src directory: lua (the interpreter), luac (the compiler), and liblua.a (the library).</li>
+  <li>To check that Lua has been built correctly, do "make test" after building Lua. This will run the interpreter and print its version.</li>
+</ol>
+<p>To run lua scripts just open a terminal and type: lua *file_name* it should compile and run the script!</p>
+<p>Installing Lua</p>
+<p>Once you've build Lua type in: sudo make install in the terminal (while you're still in the lua-5.4.1. directory)</p>
+
+<h1>Paradigm</h1>
+<p>Lua is a multi-paradigm language that utilizes aspects of imperative programming,  Object Oriented programming and Functional programming</p>
+<p>functions are a type of data-type in Lua and are fist class objects, you can pass a function into a parameter for another function or as a return value. Everything in Lua is an object, including functions– You can assign variables to a function or a function call. Object oriented programming using the object type: Tables, in Lua they can hold multiple type of elelments, create class objects, prototypes, and inheritence with the help of metatables and metafunctions</p>
+
+<h1>Typing System</h1>
+<ul>
+  <li>Strongly typed</li>
+  <li>Dynamic typing</li>
+  <li>Functions are first class objects</li>
+  <li>While programmers canot create their own custome types since every single object in lua is a table or one of the predefined types: <i>nil, boolean, number, string, userdata, function, and thread </i> programmers have found loop-holes around it with Lua's built-in Metatables and metafunctions to emmulate the behavior of class objects in-order ot implement Object Oriented programming</li>
+</ul>
+<h1>Control Structures</h1>
+<p> Lua utilize block control flow with if, else, for conditional statments statement tags and for,while, and reapte for iteration. All control functions have an explicit terminator: end. While until terminates the repeat structure. Anything between the control tag and its termination tag is the scope of the control flow.</p>
+<h1>Semantics</h1> 
+<p>Lua uses dynamic scoping, everything is run by calling context–– allowing us to implment functions in any order we please since grabing varibles/functon calls are accessed through a "call stack" that traveses up until it finds the necessary pointer we want.</p>
+<p>Orginally Lua did not support constants automatically you had to add that functionality by puting a varible into a table and setting its metatable to read-only using a meta-table. However Lua's latest update: 5.4 update: implements a "const" tag to place before your vairbles that allow you to make it a  constant </p>
+<p>Memory management is a Heap allocated strucutre rather than a machine stack. Lua's C api also leakedthat its unque stack requires you to push and pop variables off its stack.</p>
+<p>Lua has automatic memory management,and will run garbage collector form time to time to collect all dead objects. The garbage collector diferenciates which pointers or objects are "dead" based on <strong>strong referencing</strong> and <strong>weak referencing</strong>. Weak refernced objects will eventaully be picked up by the garbage collector. Key and values within a table are considered strong referecing. You can set the "weakness" of a table in Lua by using the function method .__mode, this allows you to indicate the tables has weak keys, values, etc. in order to set the object up for garbage collection.</p>
+<h1>Impressive Extensibility</h1>
+<p>Lua utilizes an impressive exstensibilty through the use of it most primary feautre: tables. This mechanism implements the concepts of records, arrays, and recursive data types (pointers), and adds some object-oriented capability, such as methods with dynamic dispatching. Because tables are acutally assocative arrays this has allowed Lua code to be pretty portable into C language. Lua also has a feature called Fallbacks which allows the user to extend the semantics of Lua such as utilizing a Fallback to implment inheritence for Objects. This has allowed for Lua programmers to build unique new library's as well as have consistent updates to this day, Lua latest update is 2019-2020 ish</p>
+<p></p>
+</body>
+</html>
